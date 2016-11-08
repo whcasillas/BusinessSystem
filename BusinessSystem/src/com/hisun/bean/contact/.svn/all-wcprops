@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/Hisun/!svn/ver/281/HisunTools/src/com/hisun/bean/contact
+END
+ProvInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Hisun/!svn/ver/281/HisunTools/src/com/hisun/bean/contact/ProvInfo.java
+END
+BankContactInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/BankContactInfo.java
+END
+BankContactTyp.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/BankContactTyp.java
+END
+GenInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/GenInfo.java
+END
+BankInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/BankInfo.java
+END
+ContactInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/ContactInfo.java
+END
+BussInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/BussInfo.java
+END
+ContackInfoQueryBean.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/ContackInfoQueryBean.java
+END
+BankType.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/BankType.java
+END
+AddGenContact.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/AddGenContact.java
+END
+ProvContactInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/bean/contact/ProvContactInfo.java
+END

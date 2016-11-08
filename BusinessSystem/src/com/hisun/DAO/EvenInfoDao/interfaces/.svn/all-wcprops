@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/Hisun/!svn/ver/273/HisunTools/src/com/hisun/DAO/EvenInfoDao/interfaces
+END
+IEvenInfoDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Hisun/!svn/ver/273/HisunTools/src/com/hisun/DAO/EvenInfoDao/interfaces/IEvenInfoDao.java
+END
+IEvenInfoExcelDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Hisun/!svn/ver/273/HisunTools/src/com/hisun/DAO/EvenInfoDao/interfaces/IEvenInfoExcelDao.java
+END

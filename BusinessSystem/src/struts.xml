@@ -1,0 +1,273 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" /> 
+	<constant name="struts.i18n.encoding" value="gbk" />
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<package name="hisuntools" extends="struts-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		<!-- 文件上传 -->
+            <action name="upload" class="com.hisun.action.upAndDown.UploadAction">
+                <result>success.jsp</result>
+                <result name="input">/data/upload.jsp</result>
+                <interceptor-ref name="fileUpload">
+                <!-- 单个上传文件的最大值-->
+                <param name="maximumSize">10485760000000</param>
+                <!-- 只能上传的文件的类型,可到tomcat的web-xml中查看各种文件类型-->
+                <param name="allowedExtensions">  
+				    png,bmp,jpg,doc,xls,docx,xlsx,cvs,gif
+				</param> 
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            </action>
+        
+        <!-- 文件下载 -->
+            <action name="download_*" class="com.hisun.action.upAndDown.DownloadAction" method="{1}">
+                <result name="get-success" type="stream"></result>
+            </action>
+            <action name="fileList" class="com.hisun.action.upAndDown.FileAction" method="queryFileList">
+	            <result name="Success">/data/DownloadList.jsp</result>
+	            <result name="error">/staff/error.jsp</result>
+            </action>
+            
+		<action name="login" class="com.hisun.action.user.StaffAction" method="staffLogin">
+			<result name="loginSuccess">/index.jsp</result>
+			<result name="loginFailure">/login.jsp</result>
+		</action>
+		<action name="logout" class="com.hisun.action.user.StaffAction" method="staffLogout">
+            <result name="Success">/login.jsp</result>
+        </action>
+		<action name="staffList" class="com.hisun.action.user.StaffAction" method="queryStaffList">
+            <result name="Success">/staff/staffList.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="staffEdit" class="com.hisun.action.user.StaffAction" method="getStaffInfo">
+            <result name="Success">/staff/staffEdit.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="saveStaff" class="com.hisun.action.user.StaffAction" method="addModifyStaff"></action>
+        <action name="delStaff" class="com.hisun.action.user.StaffAction" method="deleteStaff"></action>
+        <action name="staffPwd" class="com.hisun.action.user.StaffPwdAction" method="changePwd"></action>
+        <action name="menuParent" class="com.hisun.action.menu.MenuAction" method="getParentMenuInfo"></action>
+        <action name="menuEdit" class="com.hisun.action.menu.MenuAction" method="getMenuInfo">
+            <result name="Success">/menu/MenuEdit.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="saveMenu" class="com.hisun.action.menu.MenuAction" method="addAndModifyMenuInfo"></action>
+        <action name="savePower" class="com.hisun.action.role.RoleAction" method="savePowerInfo"></action>
+        <action name="addPower" class="com.hisun.action.role.RoleAction" method="insertPowerInfo"></action>
+        <action name="addMenu" class="com.hisun.action.menu.MenuAction" method="initAddMenu">
+            <result name="SUCCESS">/menu/MenuEdit.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="powerEdit" class="com.hisun.action.role.RoleAction" method="initPowerInfo">
+            <result name="Success">/role/PowerEdit.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="roleList" class="com.hisun.action.role.RoleAction" method="queryRoleList">
+            <result name="Success">/role/RoleList.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="menuList" class="com.hisun.action.menu.MenuAction" method="queryMenuList">
+            <result name="Success">/menu/MenuList.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        <action name="query" class="com.hisun.action.event.EventAction" method="queryEventList">
+            <result name="Success">/event/evenList.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="getevent" class="com.hisun.action.event.EventAction" method="getaddEvent">
+            <result name="Success">/event/addEvent.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="addUpd" class="com.hisun.action.event.EventAction" method="addUpdEvent">
+            <result name="Success">/event/evenList.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+         <!-- 导出事件action -->
+         <action name="eee" class="com.hisun.action.event.ExportEventExcelAction" method="exportEventExcel">
+        </action>
+        
+        	<!-- 开始银行联系人添加 -->
+        <action name="getaddcontact" class="com.hisun.action.contact.ContactAction" method="getaddContact" >
+            <result name="SUCCESS" >/contact/addcontact.jsp</result>
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+        <!-- 执行银行联系人添加 -->
+        <action name="addcontact" class="com.hisun.action.contact.ContactAction" method="addContact">
+            <result name="SUCCESS" type="redirectAction" >contactlist.action?pid=601</result> 
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+        <!--银行 联系人列表 -->
+        <action name="contactlist" class="com.hisun.action.contact.ContactAction" method="contactList">
+            <result name="SUCCESS">/contact/contactlist.jsp</result>
+             <result name="error">/staff/error.jsp</result>
+        </action>
+       <!-- 软删除银行联系人 -->
+        <action name="delcontact" class="com.hisun.action.contact.ContactAction" method="delContact">
+            <result name="SUCCESS" type="redirectAction" >contactlist.action?pid=601</result> 
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+
+        <!-- 查看单个银行联系人 -->
+        <action name="getupdContact" class="com.hisun.action.contact.ContactAction" method="getupdContact">
+            <result name="SUCCESS">/contact/updcontact.jsp</result>
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+        <!-- 修改银行联系人 -->
+        <action name="updcontact" class="com.hisun.action.contact.ContactAction" method="updContact">
+            <result name="SUCCESS" type="redirectAction" >contactlist.action?pid=601</result> 
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+       
+       <!-- 导出银行联系人 -->
+        <action name="ebce" class="com.hisun.action.contact.ExportContactExcelAction" method="exportBankContactExcel">
+        </action>
+        
+        
+        <!-- 开始省联系人添加 -->
+        <action name="getaddprovcontact" class="com.hisun.action.contact.ProvContactAction" method="getaddProvContact" >
+            <result name="SUCCESS" >/contact/addprovcontact.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <!-- 执行省联系人添加 -->
+        <action name="addprovcontact" class="com.hisun.action.contact.ProvContactAction" method="addProvContact">
+            <result name="SUCCESS" type="redirectAction" >provcontactlist.action?pid=602</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <!--省 联系人列表 -->
+        <action name="provcontactlist" class="com.hisun.action.contact.ProvContactAction" method="provContactList">
+            <result name="SUCCESS">/contact/provcontactlist.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+       <!-- 软删除省联系人 -->
+        <action name="delprovcontact" class="com.hisun.action.contact.ProvContactAction" method="delProvContact">
+            <result name="SUCCESS" type="redirectAction" >provcontactlist.action?pid=602</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+
+        <!-- 查看单个省联系人 -->
+        <action name="getupdprovcontact" class="com.hisun.action.contact.ProvContactAction" method="getupdProvContact">
+            <result name="SUCCESS">/contact/updprovcontact.jsp</result>
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <!-- 修改省联系人 -->
+        <action name="updprovcontact" class="com.hisun.action.contact.ProvContactAction" method="updProvContact">
+            <result name="SUCCESS" type="redirectAction" >provcontactlist.action?pid=602</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+       
+       <!-- 导出省联系人 -->
+        <action name="epce" class="com.hisun.action.contact.ExportProvContactExcelAction" method="exportProvContactExcel">
+        </action>
+        
+        <!-- 开始消息添加 -->
+        <action name="getaddmess" class="com.hisun.action.mess.MessAction" method="getaddMess" >
+            <result name="SUCCESS" >/mess/addmess.jsp</result>
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+        <!-- 执行消息添加 -->
+        <action name="addmess" class="com.hisun.action.mess.MessAction" method="addMess">
+            <result name="SUCCESS" type="redirectAction" >messlist.action</result> 
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+        <!--消息列表 -->
+        <action name="messlist" class="com.hisun.action.mess.MessAction" method="messList">
+            <result name="SUCCESS">/mess/messlist.jsp</result>
+        </action>
+        
+        <!--查看消息列表 -->
+        <action name="messlist_r" class="com.hisun.action.mess.MessAction" method="messList">
+            <result name="SUCCESS">/mess/messlist_r.jsp</result>
+        </action>
+        
+       <!-- 软删除消息 -->
+        <action name="delmess" class="com.hisun.action.mess.MessAction" method="delMess">
+            <result name="SUCCESS" type="redirectAction" >messlist.action</result> 
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+
+        <!-- 查看单个消息 -->
+        <action name="getupdmess" class="com.hisun.action.mess.MessAction" method="getupdMess">
+            <result name="SUCCESS">/mess/updmess.jsp</result>
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+        <!-- 修改消息 -->
+        <action name="updmess" class="com.hisun.action.mess.MessAction" method="updMess">
+            <result name="SUCCESS" type="redirectAction" >messlist.action</result> 
+            <result name="ERROR">/staff/error.jsp</result>
+        </action>
+       
+        <!--展示消息列表 -->
+        <action name="showmesslist" class="com.hisun.action.mess.MessAction" method="showMessListLastTwoDays">
+            <result name="SUCCESS">/mess/showmesslist.jsp</result>
+        </action>
+        
+        
+        <!--紧急事件列表 -->
+        <action name="JjsjList_old" class="com.hisun.action.JinJiShiJian.JjsjAction" method="JjsjList">
+            <result name="success" >/JinJiShiJian/JjsjList.jsp</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        <!--紧急事件列表new -->
+        <action name="JjsjList" class="com.hisun.action.JinJiShiJian.JjsjAction" method="JjsjListzx">
+            <result name="success" >/JinJiShiJian/JjsjList.jsp</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        
+        
+         <!--查看紧急事件列表 -->
+        <action name="JjsjList_r_old" class="com.hisun.action.JinJiShiJian.JjsjAction" method="JjsjList">
+            <result name="success" >/JinJiShiJian/JjsjList_r.jsp</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        
+         <!--查看紧急事件列表new -->
+        <action name="JjsjList_r" class="com.hisun.action.JinJiShiJian.JjsjAction" method="JjsjListzx">
+            <result name="success" >/JinJiShiJian/JjsjList_r.jsp</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        <!--添加紧急事件 -->
+        <action name="addjjsj" class="com.hisun.action.JinJiShiJian.JjsjAction" method="addJjsj">
+            <result name="success" type="redirectAction" >JjsjList.action?pid=701</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <!--催办紧急事件 -->
+        <action name="cbjjsj" class="com.hisun.action.JinJiShiJian.JjsjAction" method="cuibjjsj">
+            <result name="success" type="redirectAction" >JjsjList.action?pid=701</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <!--处理紧急事件 -->
+        <action name="cljjsj" class="com.hisun.action.JinJiShiJian.JjsjAction" method="chuljjsj">
+            <result name="success" type="redirectAction" >JjsjList.action?pid=701</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        
+        <!--导出紧急事件 -->
+        <action name="expjjsj" class="com.hisun.action.JinJiShiJian.ExpJjsjAction" method="expjjsj">
+            <result name="success" type="redirectAction" >JjsjList.action</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        
+        <!--导出紧急事件_new -->
+        <action name="expjjsjzx" class="com.hisun.action.JinJiShiJian.ExpJjsjAction" method="expjjsjzx">
+            <result name="success" type="redirectAction" >JjsjList.action</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <!-- 查看日志 -->
+        <action name="initLogs" class="com.hisun.action.viewlogs.LogsAction" method="initLogsAction">
+            <result name="SUCCESS">/viewLogs/viewLogs.jsp</result> 
+            <result name="error">/staff/error.jsp</result>
+        </action>
+        <action name="queryLogs" class="com.hisun.action.viewlogs.LogsAction" method="queryLogs"></action>
+	</package>
+</struts>

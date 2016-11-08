@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <PAY>PAY集群</PAY>
+    <URM>用户集群|URM</URM>
+    <PWM>充提|PWM</PWM>
+    <PTC>个人缴费|PTC</PTC>
+    <PMC>代理商缴费|PMC</PMC>
+    <PMCBAT>缴费批量|PMCBAT</PMCBAT>
+    <PPMC>代理商缴费PAY节点|PPMC</PPMC>
+    <CPS>云POS|CPS</CPS>
+    <SMS>短信|SMS</SMS>
+    <GW>集群网关|GW</GW>
+    <DK>代扣|DK</DK>
+    <WDC>银企|WDC</WDC>
+    <CSH>收银台|CSH</CSH>
+</root>

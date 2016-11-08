@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/Hisun/!svn/ver/307/HisunTools/src/com/hisun/DAO/contactdao/impl
+END
+BankTypeDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/DAO/contactdao/impl/BankTypeDaoImpl.java
+END
+ProvContactInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Hisun/!svn/ver/307/HisunTools/src/com/hisun/DAO/contactdao/impl/ProvContactInfoDaoImpl.java
+END
+ProvInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/DAO/contactdao/impl/ProvInfoDaoImpl.java
+END
+ContactInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Hisun/!svn/ver/307/HisunTools/src/com/hisun/DAO/contactdao/impl/ContactInfoDaoImpl.java
+END
+BankInfoDaoImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Hisun/!svn/ver/279/HisunTools/src/com/hisun/DAO/contactdao/impl/BankInfoDaoImpl.java
+END
